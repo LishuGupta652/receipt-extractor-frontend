@@ -7,7 +7,11 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "docker:dev": "docker-compose up --build",
+    "docker:prod": "docker-compose -f docker-compose.prod.yml up --build",
+    "docker:build": "docker build -f Dockerfile.prod -t receipt-extractor-frontend:latest .",
+    "docker:run": "docker run -p 80:80 receipt-extractor-frontend:latest"
   },
   "dependencies": {
     "lucide-react": "^0.541.0",
@@ -27,6 +31,7 @@
     "globals": "^16.0.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.12",
+    "terser": "^5.43.1",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.26.1",
     "vite": "^6.3.1"
